@@ -79,7 +79,7 @@ frontend/src/
   components/features/AICmdPalette.jsx    # Cmd+K AI suggestions (lazy-loaded)
 supabase/
   config.toml          # Local Supabase config (auth redirect URLs)
-  seed.sql             # Dev user: raoof.r12@gmail.com / Dev@Nexus2026
+  seed.sql             # Dev user: dev@example.com (local development only)
   migrations/          # 4 migrations: books → unified media → chat → realtime
 ```
 
@@ -137,5 +137,5 @@ Optional: `VITE_SENTRY_DSN`, `VITE_SENTRY_TRACES_SAMPLE_RATE`
 ## Deploy
 
 - **Frontend → Cloudflare Pages:** Build with `VITE_API_URL=https://home-notes-app.uk/api`, then `wrangler pages deploy dist --project-name nexus-archive --branch codex/bootstrap --commit-dirty=true`. Production branch is `codex/bootstrap` (NOT `main`). Domains: `home-notes-app.uk`, `www.home-notes-app.uk`.
-- **Backend → DigitalOcean:** Docker container on droplet `170.64.167.95`, behind Nginx reverse proxy (ports 80 + 443 with Cloudflare Origin Cert). DNS: `api.home-notes-app.uk` → droplet (Cloudflare-proxied). Cloudflare Worker proxies `home-notes-app.uk/api/*` → `https://api.home-notes-app.uk`. Healthcheck at `/healthz`.
+- **Backend → DigitalOcean:** Docker container on droplet `<droplet-ip>`, behind Nginx reverse proxy (ports 80 + 443 with Cloudflare Origin Cert). DNS: `api.home-notes-app.uk` → droplet (Cloudflare-proxied). Cloudflare Worker proxies `home-notes-app.uk/api/*` → `https://api.home-notes-app.uk`. Healthcheck at `/healthz`.
 - **Security headers** defined in `vercel.json` (CSP, X-Frame-Options, etc.) — NOTE: this is a legacy file from Vercel. Cloudflare Pages does NOT read `vercel.json`. These headers need to be migrated to `frontend/public/_headers` to take effect.

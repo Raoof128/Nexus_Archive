@@ -2,6 +2,10 @@
 
 Nexus Archive is a cyberpunk-styled personal media vault and job tracker. It combines a React frontend, a Litestar API, and Supabase-backed identity and persistence so a user can manage books, movies, anime, job applications, ratings, takeaways, chat sessions, and AI-assisted recommendations from a single interface.
 
+**Status:** a personal project and the first version of what became [Nexus OS](https://github.com/Raoof128/Nexus-OS). Work on this repository stopped in April 2026; Nexus OS continues from the same backend and data model with a desktop-style interface. This repository is kept as the record of the original single-page version. It is not a hosted service, and no demo is linked.
+
+The three files at the repository root (`Anime I have Watched.xlsx`, `Books.md`, `Scary movies i have watched.md`) are the author's own reading and watching lists, used as starting data. They are lists of titles only. Nexus Archive is a tracker: it stores titles, ratings and notes, and does not host, stream or link to any media.
+
 ## Security Upgrade Highlights
 
 This repository now includes a stronger defensive posture:
