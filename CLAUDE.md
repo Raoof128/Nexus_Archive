@@ -79,7 +79,7 @@ frontend/src/
   components/features/AICmdPalette.jsx    # Cmd+K AI suggestions (lazy-loaded)
 supabase/
   config.toml          # Local Supabase config (auth redirect URLs)
-  seed.sql             # Dev user: raoof.r12@gmail.com / Dev@Nexus2026
+  seed.sql             # Dev user: dev@example.com (local development only)
   migrations/          # 4 migrations: books → unified media → chat → realtime
 ```
 

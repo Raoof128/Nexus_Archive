@@ -9,13 +9,14 @@
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 -- -----------------------------------------------------------------------------
--- Dev user: raoof.r12@gmail.com  /  password: Dev@Nexus2026
+-- Dev user: dev@example.com  /  password: nexus-local-dev
+-- Local development only. Never run this file against a hosted project.
 -- Fixed UUID for reproducible references across resets.
 -- -----------------------------------------------------------------------------
 DO $$
 DECLARE
   _user_id uuid := 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'::uuid;
-  _email   text := 'raoof.r12@gmail.com';
+  _email   text := 'dev@example.com';
 BEGIN
 
   -- Insert into auth.users (idempotent via ON CONFLICT)
@@ -41,7 +42,7 @@ BEGIN
     'authenticated',
     'authenticated',
     _email,
-    crypt('Dev@Nexus2026', gen_salt('bf')),
+    crypt('nexus-local-dev', gen_salt('bf')),
     NOW(),
     '{"provider":"email","providers":["email"]}',
     '{}',

@@ -22,6 +22,14 @@ description: Foundational agent rules for the Gemini + LiteStar + React project.
 
 ## Change Log
 
+### 2026-11-17 (Australia/Sydney)
+**Raouf:**
+- **Scope:** Documentation and seed-file cleanup
+- **Summary:** Removed the owner's email address and a password from `supabase/seed.sql`, `CLAUDE.md` and earlier log entries; the local seed user is now `dev@example.com` with a local-only password. Replaced machine paths in the logs and plans with `<repo>`. The README now states that this repository is the first version of Nexus OS and is no longer developed, and explains the three list files at the root.
+- **Files Changed:** `supabase/seed.sql`, `README.md`, `CLAUDE.md`, `AGENT.md`, `CHANGELOG.md`, `docs/plans/2026-03-17-supabase-realtime.md`, `docs/superpowers/plans/2026-04-10-unified-inbox.md`
+- **Verification:** No application code changed. CI on the pull request.
+- **Follow-ups:** The removed values remain in the Git history. Any account that ever used that password needs a new one.
+
 ### 2026-03-24 (Australia/Sydney)
 **Raouf:**
 - **Scope:** New Media Type — Job Application Tracker
@@ -49,7 +57,7 @@ description: Foundational agent rules for the Gemini + LiteStar + React project.
 ### 2026-03-22 (Australia/Sydney)
 **Raouf:**
 - **Scope:** Fix Production Account + Password Reset Redirect
-- **Summary:** Fixed two production issues. (1) Production Supabase user `raoof.r12@gmail.com` password was out of sync — reset to `Dev@Nexus2026` via Supabase Admin API. (2) Password reset email link was redirecting to root `/` instead of `/reset-password` — updated Supabase recovery email template via Management API to use `{{ .SiteURL }}/reset-password?token_hash={{ .TokenHash }}&type=recovery`. Updated frontend `recoveryTokens.js` to also parse `token_hash` from URL params (in addition to `access_token`). Updated `ResetPasswordPage.jsx` to accept `tokenHash` prop and exchange it for a session via `realtimeClient.auth.verifyOtp()` before showing the password form.
+- **Summary:** Fixed two production issues. (1) Production Supabase user `the owner account` password was out of sync — reset via the Supabase Admin API. (2) Password reset email link was redirecting to root `/` instead of `/reset-password` — updated Supabase recovery email template via Management API to use `{{ .SiteURL }}/reset-password?token_hash={{ .TokenHash }}&type=recovery`. Updated frontend `recoveryTokens.js` to also parse `token_hash` from URL params (in addition to `access_token`). Updated `ResetPasswordPage.jsx` to accept `tokenHash` prop and exchange it for a session via `realtimeClient.auth.verifyOtp()` before showing the password form.
 - **Files Changed:** `lib/recoveryTokens.js`, `components/features/ResetPasswordPage.jsx`, `App.jsx`.
 - **Verification:** Lint 0 errors, test 17/17, build clean, deployed to Cloudflare Pages.
 - **Follow-ups:** Test the full password reset flow end-to-end by requesting a recovery email and clicking the link.
@@ -120,7 +128,7 @@ description: Foundational agent rules for the Gemini + LiteStar + React project.
 ### 2026-03-20 (Australia/Sydney)
 **Raouf:**
 - **Scope:** CLI Application — Supabase Stack Restart, DB Seed, Local Dev Env
-- **Summary:** Applied all three bug-fix changes using the Supabase CLI. `supabase start` picked up the updated `config.toml`. `supabase db reset` applied 4 migrations and seeded `raoof.r12@gmail.com`. Added `.env.local` overlay support to `backend/config.py`; created `backend/.env.local` with local stack credentials.
+- **Summary:** Applied all three bug-fix changes using the Supabase CLI. `supabase start` picked up the updated `config.toml`. `supabase db reset` applied 4 migrations and seeded `the owner account`. Added `.env.local` overlay support to `backend/config.py`; created `backend/.env.local` with local stack credentials.
 - **Files Changed:** `backend/config.py`, `backend/.env.local` (new, gitignored).
 - **Verification:** DB reset succeeded, both `auth.users` + `auth.identities` rows confirmed, ruff clean, pytest 34/34 pass.
 - **Follow-ups:** Regenerate `.env.local` after stack restarts if JWT secret rotates. Create prod user via Supabase Auth dashboard only.
