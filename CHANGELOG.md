@@ -3,7 +3,7 @@
 ### 2026-11-17 (Australia/Sydney)
 **Raouf:**
 - **Scope:** Documentation and seed-file cleanup
-- **Summary:** Removed the owner's email address and a password from the seed file, `CLAUDE.md` and earlier log entries (the local seed user is now `dev@example.com`), replaced machine paths with `<repo>`, and added a README status paragraph: this repository is the first version of Nexus OS and is no longer developed.
+- **Summary:** Removed the owner's email address and a password from the seed file, `CLAUDE.md` and earlier log entries (the local seed user is now `dev@example.com` with a placeholder password), replaced the server's IP address with `<droplet-ip>` and machine paths with `<repo>`, and added a README status paragraph: this repository is the first version of Nexus OS and is no longer developed.
 - **Files Changed:** `supabase/seed.sql`, `README.md`, `CLAUDE.md`, `AGENT.md`, `CHANGELOG.md`, two plan documents under `docs/`
 - **Verification:** No application code changed. CI on the pull request.
 - **Follow-ups:** The removed values remain in the Git history; rotate any account that used that password.

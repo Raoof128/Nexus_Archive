@@ -25,7 +25,7 @@ description: Foundational agent rules for the Gemini + LiteStar + React project.
 ### 2026-11-17 (Australia/Sydney)
 **Raouf:**
 - **Scope:** Documentation and seed-file cleanup
-- **Summary:** Removed the owner's email address and a password from `supabase/seed.sql`, `CLAUDE.md` and earlier log entries; the local seed user is now `dev@example.com` with a local-only password. Replaced machine paths in the logs and plans with `<repo>`. The README now states that this repository is the first version of Nexus OS and is no longer developed, and explains the three list files at the root.
+- **Summary:** Removed the owner's email address and a password from `supabase/seed.sql`, `CLAUDE.md` and earlier log entries; the local seed user is now `dev@example.com` with a placeholder password that the developer replaces. Replaced the server's IP address with `<droplet-ip>` and machine paths in the logs and plans with `<repo>`. The README now states that this repository is the first version of Nexus OS and is no longer developed, and explains the three list files at the root.
 - **Files Changed:** `supabase/seed.sql`, `README.md`, `CLAUDE.md`, `AGENT.md`, `CHANGELOG.md`, `docs/plans/2026-03-17-supabase-realtime.md`, `docs/superpowers/plans/2026-04-10-unified-inbox.md`
 - **Verification:** No application code changed. CI on the pull request.
 - **Follow-ups:** The removed values remain in the Git history. Any account that ever used that password needs a new one.
